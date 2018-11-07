@@ -69,7 +69,6 @@ public class Game
         System.out.println("Mundo de Zuul é um jogo de aventura, incrivelmente chato.");
         System.out.println("Digite 'ajuda' se você precisar de ajuda.");
         System.out.println();
-        System.out.println("Você está " + currentRoom.getDescription());
         printLocationInfo();
     }
     
