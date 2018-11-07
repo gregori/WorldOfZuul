@@ -70,6 +70,15 @@ public class Game
         System.out.println("Digite 'ajuda' se você precisar de ajuda.");
         System.out.println();
         System.out.println("Você está " + currentRoom.getDescription());
+        printLocationInfo();
+    }
+    
+    /**
+     * Imptimr informações relativas à
+     * Localização atual.
+     */
+    private void printLocationInfo() {
+    	System.out.println("Você está " + currentRoom.getDescription());
         System.out.print("Saídas: ");
         if(currentRoom.northExit != null) {
             System.out.print("norte ");
@@ -161,21 +170,7 @@ public class Game
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("Você está " + currentRoom.getDescription());
-            System.out.print("Saídas: ");
-            if(currentRoom.northExit != null) {
-                System.out.print("norte ");
-            }
-            if(currentRoom.eastExit != null) {
-                System.out.print("leste ");
-            }
-            if(currentRoom.southExit != null) {
-                System.out.print("sul ");
-            }
-            if(currentRoom.westExit != null) {
-                System.out.print("oeste ");
-            }
-            System.out.println();
+            printLocationInfo();
         }
     }
 
