@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 /**
  * Class Room - a room in an adventure game.
  *
@@ -15,10 +17,7 @@
 public class Room 
 {
     private String description;
-    private Room northExit;
-    private Room southExit;
-    private Room eastExit;
-    private Room westExit;
+    private HashMap<String, Room> exits;
 
     /**
      * Create a room described "description". Initially, it has
@@ -29,6 +28,7 @@ public class Room
     public Room(String description) 
     {
         this.description = description;
+        exits = new HashMap<>();
     }
 
     /**
@@ -39,16 +39,9 @@ public class Room
      * @param south The south exit.
      * @param west The west exit.
      */
-    public void setExits(Room north, Room east, Room south, Room west) 
+    public void setExits(String direction, Room exit) 
     {
-        if(north != null)
-            northExit = north;
-        if(east != null)
-            eastExit = east;
-        if(south != null)
-            southExit = south;
-        if(west != null)
-            westExit = west;
+        exits.put(direction, exit);
     }
     
     /**
@@ -56,24 +49,8 @@ public class Room
      * @return A saída adequada
      */
     public Room getExit(String direction)
-    {
-    	if (direction.equals("norte")) {
-    		return northExit;
-    	}
-    	
-    	if (direction.equals("sul")) {
-    		return southExit;
-    	}
-    	
-    	if (direction.equals("leste")) {
-    		return eastExit;
-    	}
-    	
-    	if (direction.equals("oeste")) {
-    		return westExit;
-    	}
-    	
-    	return null;
+    {	
+    	return exits.get(direction);
     }
     
     /**
@@ -83,21 +60,13 @@ public class Room
      */
     public String getExitString() 
     {
-    	String exits = "Saídas: ";
-        if(northExit != null) {
-            exits += "norte ";
-        }
-        if(eastExit != null) {
-        	exits += "leste ";
-        }
-        if(southExit != null) {
-        	exits += "sul ";
-        }
-        if(westExit != null) {
-        	exits += "oeste ";
-        }
+    	String returnString = "Saídas: ";
         
-        return exits;
+    	for (String exit : exits.keySet()) {
+    		returnString += exit + " ";
+    	}
+        
+        return returnString;
     }
 
     /**
