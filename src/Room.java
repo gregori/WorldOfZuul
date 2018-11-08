@@ -75,6 +75,30 @@ public class Room
     	
     	return null;
     }
+    
+    /**
+     * Retorna uma descrição das saídas da sala,
+     * por exemplo, "Saídas: norte oeste".
+     * @return Uma descrição das saídas disponíveis
+     */
+    public String getExitString() 
+    {
+    	String exits = "Saídas: ";
+        if(northExit != null) {
+            exits += "norte ";
+        }
+        if(eastExit != null) {
+        	exits += "leste ";
+        }
+        if(southExit != null) {
+        	exits += "sul ";
+        }
+        if(westExit != null) {
+        	exits += "oeste ";
+        }
+        
+        return exits;
+    }
 
     /**
      * @return The description of the room.
