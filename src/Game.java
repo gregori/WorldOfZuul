@@ -107,6 +107,8 @@ public class Game
             goRoom(command);
         else if (commandWord.equals("sair"))
             wantToQuit = quit(command);
+        else if (commandWord.equals("examinar"))
+        	look(command);
 
         return wantToQuit;
     }
@@ -151,6 +153,16 @@ public class Game
             currentRoom = nextRoom;
             printLocationInfo();
         }
+    }
+    
+    /**
+     * "examinar" foi digitado. Imprime uma descrição da sala atual
+     * @param command
+     */
+   
+    private void look(Command command)
+    {
+    	System.out.println(currentRoom.getLongDescription());
     }
 
     /** 
