@@ -22,7 +22,7 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office;
+        Room outside, theatre, pub, lab, office, attic;
       
         // create the rooms
         outside = new Room("fora da entrada principal da universidade");
@@ -30,6 +30,7 @@ public class Game
         pub = new Room("na cantina do campus");
         lab = new Room("em um laboratório de informática");
         office = new Room("na sala dos professores");
+        attic = new Room("no sótão da laboratório");
         
         // initialise room exits
         outside.setExits("leste", theatre);
@@ -39,6 +40,8 @@ public class Game
         pub.setExits("leste", outside);
         lab.setExits("norte", outside);
         lab.setExits("leste", office);
+        lab.setExits("cima", attic);
+        attic.setExits("baixo", lab);
         office.setExits("oeste", lab);
 
         currentRoom = outside;  // Começa o jogo fora 
@@ -80,9 +83,7 @@ public class Game
      * Localização atual.
      */
     private void printLocationInfo() {
-    	System.out.println("Você está " + currentRoom.getDescription());
-        System.out.println(currentRoom.getExitString());
-        System.out.println();
+        System.out.println(currentRoom.getLongDescription());
     }
 
     /**

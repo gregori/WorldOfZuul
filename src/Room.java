@@ -76,5 +76,17 @@ public class Room
     {
         return description;
     }
+    
+    /**
+     * Retorna uma descrição longa desta sala, na forma:
+     *   Você está na cozinha.
+     *   Saídas: norte oeste
+     * @return Uma descrição da sala, incluindo saídas.
+     */
+    public String getLongDescription()
+    {
+    	return "Você está " + description + ".\n" +
+    			getExitString();
+    }
 
 }
