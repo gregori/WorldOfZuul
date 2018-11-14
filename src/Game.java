@@ -109,6 +109,8 @@ public class Game
             wantToQuit = quit(command);
         else if (commandWord.equals("examinar"))
         	look(command);
+        else if (commandWord.equals("comer"))
+        	eat(command);
 
         return wantToQuit;
     }
@@ -163,6 +165,14 @@ public class Game
     private void look(Command command)
     {
     	System.out.println(currentRoom.getLongDescription());
+    }
+    
+    /**
+     * "comer" foi digitado. Imprime uma informação de que o jogador comeu
+     */
+    private void eat(Command command)
+    {
+    	System.out.println("Você comeu agora e não está mais com fome.");
     }
 
     /** 

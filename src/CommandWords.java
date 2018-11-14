@@ -7,7 +7,7 @@ public class CommandWords
 {
     // um array constante que contém todos os comandos válidos
     private static final String[] VALID_COMMANDS = {
-        "ir_para", "sair", "ajuda", "examinar"
+        "ir_para", "sair", "ajuda", "examinar", "comer"
     };
 
     /**
