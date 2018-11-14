@@ -128,7 +128,7 @@ public class Game
         System.out.println("pela universidade.");
         System.out.println();
         System.out.println("Seus comandos são:");
-        System.out.println("   ir_para sair ajuda");
+        System.out.println(parser.showCommands());
     }
 
     /** 

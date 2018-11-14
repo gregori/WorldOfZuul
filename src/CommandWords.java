@@ -33,4 +33,18 @@ public class CommandWords
         // se chegamos aqui, a string não foi encontrada nos comandos
         return false;
     }
+    
+    /**
+     * Imprimir todos os comandos válidos.
+     * @return TODO
+     */
+    public String getCommandList()
+    {
+    	String commands = "";
+    	for (String command : VALID_COMMANDS) {
+    		commands += command + " ";
+    	}
+    	return commands;
+    }
 }
+
