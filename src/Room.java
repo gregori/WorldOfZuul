@@ -18,6 +18,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
+    private Item item;
 
     /**
      * Create a room described "description". Initially, it has
@@ -43,6 +44,16 @@ public class Room
     {
         exits.put(direction, exit);
     }
+    
+    /**
+     * Insere um item na sala
+     * @param item o item a inserir
+     */
+    public void setItem(Item item)
+    {
+    	this.item = item;
+    }
+    
     
     /**
      * @param direction uma String com a direção
@@ -85,8 +96,12 @@ public class Room
      */
     public String getLongDescription()
     {
+    	String itemStr = item != null ? 
+				   "Esta sala contém " + item.getDescription() + "\n"
+				   : "";
     	return "Você está " + description + ".\n" +
-    			getExitString();
+    		    itemStr
+    			+ getExitString();
     }
 
 }

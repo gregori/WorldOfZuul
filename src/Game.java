@@ -44,6 +44,11 @@ public class Game
         attic.setExits("baixo", lab);
         office.setExits("oeste", lab);
 
+        theatre.setItem(new Item("um microfone velho", 500));
+        pub.setItem(new Item("um prato quebrado", 600));
+        lab.setItem(new Item("uma cadeira sem encosto", 3000));
+        
+        
         currentRoom = outside;  // Começa o jogo fora 
     }
 
